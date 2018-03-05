@@ -10,16 +10,25 @@ import Cocoa
 
 class HomeViewController: NSViewController {
 
+    @IBOutlet weak var docExploreButton: NSButtonCell!
+    @IBOutlet weak var audioExploreButton: NSButtonCell!
+    @IBOutlet weak var videoExploreButton: NSButtonCell!
+    @IBOutlet weak var imageExploreButton: NSButtonCell!
+    @IBOutlet weak var collectionView: NSScrollView!
+    @IBOutlet weak var dragDropMessageContainer: NSView!
     @IBOutlet weak var dragDropAreaView: DragDropAreView!
     override func viewDidLoad() {
         super.viewDidLoad()
         dragDropAreaView.delegate = self
-        // Do view setup here.
+        setupView()
     }
     
     func setupView()
     {
-  
+        imageExploreButton.backgroundColor = #colorLiteral(red: 0.9685459733, green: 0.9686813951, blue: 0.9685032964, alpha: 1)
+        videoExploreButton.backgroundColor = #colorLiteral(red: 0.9685459733, green: 0.9686813951, blue: 0.9685032964, alpha: 1)
+        audioExploreButton.backgroundColor = #colorLiteral(red: 0.9685459733, green: 0.9686813951, blue: 0.9685032964, alpha: 1)
+        docExploreButton.backgroundColor   = #colorLiteral(red: 0.9685459733, green: 0.9686813951, blue: 0.9685032964, alpha: 1)
     }
     
     func createImagesFolder(sourcePath: String) {
@@ -34,11 +43,8 @@ class HomeViewController: NSViewController {
                     try fileManager.createDirectory(atPath: imagesDirectoryPath,
                                                     withIntermediateDirectories: false,
                                                     attributes: nil)
-                    print(">>>>>>>>> \(documentDirectoryPath)")
                     let imageName = sourcePath.components(separatedBy: "/").last
-                    print("Image name is \(imageName!)")
                     let destinationPath = imagesDirectoryPath.appending("/").appending(imageName!)
-                    print("Dest path is \(destinationPath)")
                     copyFileToDocumentsDir(sourcePath: sourcePath, desitinationPath: destinationPath)
                 } catch {
                     print("Error creating images folder in documents dir: \(error)")
@@ -48,9 +54,7 @@ class HomeViewController: NSViewController {
             {
                 print("Directory exists")
                 let imageName = sourcePath.components(separatedBy: "/").last
-                print("Image name is \(imageName!)")
                 let destinationPath = imagesDirectoryPath.appending("/").appending(imageName!)
-                print("Dest path is \(destinationPath)")
                 copyFileToDocumentsDir(sourcePath: sourcePath, desitinationPath: destinationPath)
             }
         }
@@ -63,9 +67,7 @@ class HomeViewController: NSViewController {
             do {
                 let startIndex = sourcePath.index(sourcePath.startIndex, offsetBy: 7)
                 let trimmedSourcePath = sourcePath[startIndex...]
-                print("trimmed path is \(trimmedSourcePath)")
-//                try filemgr.copyItem(atPath: String(trimmedSourcePath), toPath: desitinationPath)
-                                try filemgr.moveItem(atPath: String(trimmedSourcePath), toPath: desitinationPath)
+                try filemgr.moveItem(atPath: String(trimmedSourcePath), toPath: desitinationPath)
             }catch let error {
                 print("Error: \(error.localizedDescription)")
             }
@@ -75,12 +77,39 @@ class HomeViewController: NSViewController {
             print("file exists")
         }
     }
+    
+    
+    @IBAction func didClickOnExploreButton(_ sender: NSButtonCell)
+    {
+        toggleViewStates(state: false)
+        
+        switch sender.tag {
+        case 101:
+            print("Images")
+        case 102:
+            print("Videos")
+        case 103:
+            print("Audios")
+        case 104:
+            print("Docs")
+        default:
+            break
+        }
+    }
+    
+    func toggleViewStates(state: Bool)
+    {
+        collectionView.isHidden = state
+        dragDropAreaView.isHidden = !state
+        dragDropMessageContainer.isHidden = !state
+    }
+    
+    
 }
 
 extension HomeViewController: DragDropViewDelegate
 {
     func dragView(didDragFileWith URL: NSURL) {
-        print("source path is \(String(describing: URL.absoluteString))")
         self.createImagesFolder(sourcePath: URL.absoluteString!)
     }
 }

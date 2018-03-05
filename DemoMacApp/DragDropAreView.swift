@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppKit
 
 protocol DragDropViewDelegate {
     func dragView(didDragFileWith URL: NSURL)
@@ -18,13 +19,32 @@ class DragDropAreView: NSView {
     private var acceptedFileExtensions = ["jpg"]
      var delegate: DragDropViewDelegate?
     
+    var isReceivingDrag = false {
+        didSet {
+            needsDisplay = true
+        }
+    }
+
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         register(forDraggedTypes: [NSFilenamesPboardType])
     }
     
+    override func draw(_ dirtyRect: NSRect) {
+        
+        if isReceivingDrag {
+            NSColor.selectedControlColor.set()
+            
+            let path = NSBezierPath(rect:bounds)
+            path.lineWidth = 10
+            path.stroke()
+        }
+    }
+    
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         fileTypeIsOk = checkExtension(drag: sender)
+        isReceivingDrag = fileTypeIsOk
         return []
     }
     
@@ -33,6 +53,8 @@ class DragDropAreView: NSView {
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        
+        isReceivingDrag = false
         guard let draggedFileURL = sender.draggedFileURL else {
             return false
         }
@@ -42,6 +64,10 @@ class DragDropAreView: NSView {
         }
         
         return true
+    }
+    
+    override func draggingExited(_ sender: NSDraggingInfo?) {
+        isReceivingDrag = false
     }
     
     fileprivate func checkExtension(drag: NSDraggingInfo) -> Bool {

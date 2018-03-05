@@ -733,32 +733,44 @@
                                         <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hz-em-M5L">
                                             <rect key="frame" x="20" y="308" width="208" height="180"/>
                                             <subviews>
-                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-Je-jRJ">
+                                                <button verticalHuggingPriority="750" tag="101" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-Je-jRJ">
                                                     <rect key="frame" x="-6" y="134" width="220" height="50"/>
                                                     <buttonCell key="cell" type="push" title="Images" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3kG-L0-qUl">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="16" name="ComicSansMS"/>
+                                                        <connections>
+                                                            <action selector="didClickOnExploreButton:" target="XfG-lQ-9wD" id="23U-AS-8Kr"/>
+                                                        </connections>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vlU-Vg-Hco">
+                                                <button verticalHuggingPriority="750" tag="102" translatesAutoresizingMaskIntoConstraints="NO" id="vlU-Vg-Hco">
                                                     <rect key="frame" x="-6" y="87" width="220" height="50"/>
                                                     <buttonCell key="cell" type="push" title="Videos" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lJJ-kU-sU3">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="16" name="ComicSansMS"/>
+                                                        <connections>
+                                                            <action selector="didClickOnExploreButton:" target="XfG-lQ-9wD" id="9FU-ED-VfY"/>
+                                                        </connections>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZUz-jZ-few">
+                                                <button verticalHuggingPriority="750" tag="103" translatesAutoresizingMaskIntoConstraints="NO" id="ZUz-jZ-few">
                                                     <rect key="frame" x="-6" y="40" width="220" height="50"/>
                                                     <buttonCell key="cell" type="push" title="Audios" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QbW-W1-Nb9">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="16" name="ComicSansMS"/>
+                                                        <connections>
+                                                            <action selector="didClickOnExploreButton:" target="XfG-lQ-9wD" id="Ux1-Qo-xzy"/>
+                                                        </connections>
                                                     </buttonCell>
                                                 </button>
-                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xWd-Gj-VE1">
+                                                <button verticalHuggingPriority="750" tag="104" translatesAutoresizingMaskIntoConstraints="NO" id="xWd-Gj-VE1">
                                                     <rect key="frame" x="-6" y="-7" width="220" height="50"/>
                                                     <buttonCell key="cell" type="push" title="Documents" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9rd-2q-S0C">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="16" name="ComicSansMS"/>
+                                                        <connections>
+                                                            <action selector="didClickOnExploreButton:" target="XfG-lQ-9wD" id="WgO-Ol-29w"/>
+                                                        </connections>
                                                     </buttonCell>
                                                 </button>
                                             </subviews>
@@ -801,6 +813,32 @@
                                     <rect key="frame" x="1" y="1" width="748" height="508"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <scrollView hidden="YES" wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aER-0k-WKO">
+                                            <rect key="frame" x="0.0" y="0.0" width="748" height="508"/>
+                                            <clipView key="contentView" drawsBackground="NO" id="tOX-xo-Sin">
+                                                <rect key="frame" x="1" y="1" width="746" height="506"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <collectionView id="SgM-rJ-mnL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="746" height="158"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="M9Q-Fg-fHC">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                        </collectionViewFlowLayout>
+                                                        <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </collectionView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="eb3-Zq-pn1">
+                                                <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="nwC-RK-IX0">
+                                                <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                        </scrollView>
                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="u8L-E8-Plf" userLabel="DragDropLabelContainer">
                                             <rect key="frame" x="288" y="199" width="173" height="110"/>
                                             <subviews>
@@ -833,14 +871,21 @@
                                                 <constraint firstAttribute="height" constant="110" id="uis-Hc-J8Q"/>
                                             </constraints>
                                         </customView>
-                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ib3-rm-XoE" userLabel="DragDropAreaView" customClass="DragDropAreView" customModule="DemoMacApp" customModuleProvider="target">
+                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ib3-rm-XoE" userLabel="DragDropAreaView" customClass="DragDropAreView" customModule="DemoMacApp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="748" height="508"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         </customView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Ib3-rm-XoE" secondAttribute="trailing" id="1x5-CW-3sx"/>
+                                        <constraint firstItem="Ib3-rm-XoE" firstAttribute="top" secondItem="CvV-e9-LcM" secondAttribute="top" id="Ly1-dL-3Xh"/>
+                                        <constraint firstAttribute="trailing" secondItem="aER-0k-WKO" secondAttribute="trailing" id="P7a-2k-RlW"/>
+                                        <constraint firstItem="aER-0k-WKO" firstAttribute="top" secondItem="CvV-e9-LcM" secondAttribute="top" id="TPp-8A-hBb"/>
+                                        <constraint firstItem="aER-0k-WKO" firstAttribute="leading" secondItem="CvV-e9-LcM" secondAttribute="leading" id="U3l-46-Znr"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ib3-rm-XoE" secondAttribute="bottom" id="aBf-Cq-uWe"/>
                                         <constraint firstItem="u8L-E8-Plf" firstAttribute="centerY" secondItem="CvV-e9-LcM" secondAttribute="centerY" id="arg-gc-ymU"/>
                                         <constraint firstItem="u8L-E8-Plf" firstAttribute="centerX" secondItem="CvV-e9-LcM" secondAttribute="centerX" id="kQk-R0-vbB"/>
+                                        <constraint firstItem="Ib3-rm-XoE" firstAttribute="leading" secondItem="CvV-e9-LcM" secondAttribute="leading" id="oNW-Td-079"/>
+                                        <constraint firstAttribute="bottom" secondItem="aER-0k-WKO" secondAttribute="bottom" id="s9V-1e-cGV"/>
                                     </constraints>
                                 </view>
                                 <color key="fillColor" red="0.92149084806442261" green="0.92162007093429565" blue="0.92145007848739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -862,7 +907,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="audioExploreButton" destination="QbW-W1-Nb9" id="p80-73-NZJ"/>
+                        <outlet property="collectionView" destination="aER-0k-WKO" id="NAn-l7-NAj"/>
+                        <outlet property="docExploreButton" destination="9rd-2q-S0C" id="Jzg-ks-9Gp"/>
                         <outlet property="dragDropAreaView" destination="Ib3-rm-XoE" id="8ED-1V-T67"/>
+                        <outlet property="dragDropMessageContainer" destination="u8L-E8-Plf" id="yf9-vA-7Fe"/>
+                        <outlet property="imageExploreButton" destination="3kG-L0-qUl" id="FP0-Ee-4gf"/>
+                        <outlet property="videoExploreButton" destination="lJJ-kU-sU3" id="750-Wd-rBx"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

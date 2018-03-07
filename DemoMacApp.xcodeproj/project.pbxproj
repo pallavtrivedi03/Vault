@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B05C307204EEF16000D0AA4 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05C305204EEF16000D0AA4 /* CollectionViewItem.swift */; };
+		7B05C308204EEF16000D0AA4 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B05C306204EEF16000D0AA4 /* CollectionViewItem.xib */; };
 		8C205BBB204D07950007D6C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C205BBA204D07950007D6C3 /* HomeViewController.swift */; };
 		8C205BBD204D15580007D6C3 /* DragDropAreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C205BBC204D15580007D6C3 /* DragDropAreView.swift */; };
 		8C205BBF204D40220007D6C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C205BBE204D40220007D6C3 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B05C305204EEF16000D0AA4 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
+		7B05C306204EEF16000D0AA4 /* CollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
 		8C205BBA204D07950007D6C3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8C205BBC204D15580007D6C3 /* DragDropAreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropAreView.swift; sourceTree = "<group>"; };
 		8C205BBE204D40220007D6C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				8C205BBA204D07950007D6C3 /* HomeViewController.swift */,
 				8C205BBC204D15580007D6C3 /* DragDropAreView.swift */,
 				8C205BBE204D40220007D6C3 /* Assets.xcassets */,
+				7B05C305204EEF16000D0AA4 /* CollectionViewItem.swift */,
+				7B05C306204EEF16000D0AA4 /* CollectionViewItem.xib */,
 			);
 			path = DemoMacApp;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 			files = (
 				8C205BBF204D40220007D6C3 /* Assets.xcassets in Resources */,
 				8CEBEEB12048304A001AB749 /* Main.storyboard in Resources */,
+				7B05C308204EEF16000D0AA4 /* CollectionViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C205BBD204D15580007D6C3 /* DragDropAreView.swift in Sources */,
+				7B05C307204EEF16000D0AA4 /* CollectionViewItem.swift in Sources */,
 				8CEBEEAA2048304A001AB749 /* AppDelegate.swift in Sources */,
 				8C205BBB204D07950007D6C3 /* HomeViewController.swift in Sources */,
 			);
@@ -272,6 +280,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DemoMacApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.develop.DemoMacApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -287,6 +296,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DemoMacApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.develop.DemoMacApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CollectionViewItem" customModule="DemoMacApp" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hSt-rn-lCo">
+                    <rect key="frame" x="-3" y="25" width="486" height="250"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" imageFrameStyle="photo" id="aBD-TU-CsO"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-CB-3Xs">
+                    <rect key="frame" x="-2" y="0.0" width="484" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="BN7-jV-Lwu"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="UKG-ad-2lq">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="pCm-CB-3Xs" secondAttribute="bottom" id="4g9-bI-Fxd"/>
+                <constraint firstItem="hSt-rn-lCo" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="GmN-lp-YD8"/>
+                <constraint firstAttribute="trailing" secondItem="pCm-CB-3Xs" secondAttribute="trailing" id="Kw1-c2-w7O"/>
+                <constraint firstAttribute="trailing" secondItem="hSt-rn-lCo" secondAttribute="trailing" id="Srr-Ry-GFE"/>
+                <constraint firstItem="pCm-CB-3Xs" firstAttribute="top" secondItem="hSt-rn-lCo" secondAttribute="bottom" constant="4" id="nyH-jM-zcE"/>
+                <constraint firstItem="hSt-rn-lCo" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ugO-rE-j1w"/>
+                <constraint firstItem="pCm-CB-3Xs" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="yXE-xi-NaV"/>
+            </constraints>
+        </customView>
+        <collectionViewItem id="jwl-ZU-0Sd" customClass="CollectionViewItem" customModule="DemoMacApp" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="hSt-rn-lCo" id="s28-1A-haN"/>
+                <outlet property="textField" destination="pCm-CB-3Xs" id="DDY-YM-1tE"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="6U9-B0-puR"/>
+            </connections>
+        </collectionViewItem>
+    </objects>
+</document>

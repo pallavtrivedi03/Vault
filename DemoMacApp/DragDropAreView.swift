@@ -10,13 +10,21 @@ import Cocoa
 import AppKit
 
 protocol DragDropViewDelegate {
-    func dragView(didDragFileWith URL: NSURL)
+    func draggedMediaType(type:MediaType, url: NSURL)
+}
+
+enum MediaType
+{
+    case image
+    case video
+    case audio
+    case document
 }
 
 class DragDropAreView: NSView {
 
     private var fileTypeIsOk = false
-    private var acceptedFileExtensions = ["jpg"]
+    private var acceptedFileExtensions = ["jpg","png","doc","docx","pdf","mov","mp4","mp3"]
      var delegate: DragDropViewDelegate?
     
     var isReceivingDrag = false {
@@ -49,18 +57,14 @@ class DragDropAreView: NSView {
     }
     
     override func draggingUpdated(_ sender: NSDraggingInfo) -> NSDragOperation {
-        return fileTypeIsOk ? .copy : []
+        return fileTypeIsOk ? .move : []
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         
         isReceivingDrag = false
-        guard let draggedFileURL = sender.draggedFileURL else {
+        guard let _ = sender.draggedFileURL else {
             return false
-        }
-        
-        if fileTypeIsOk {
-            delegate?.dragView(didDragFileWith: draggedFileURL)
         }
         
         return true
@@ -73,6 +77,26 @@ class DragDropAreView: NSView {
     fileprivate func checkExtension(drag: NSDraggingInfo) -> Bool {
         guard let fileExtension = drag.draggedFileURL?.pathExtension?.lowercased() else {
             return false
+        }
+        
+        if acceptedFileExtensions.contains(fileExtension)
+        {
+            if fileExtension == "jpg" || fileExtension == "png"
+            {
+                delegate?.draggedMediaType(type: .image, url: drag.draggedFileURL!)
+            }
+            else if fileExtension == "mp4" || fileExtension == "mov"
+            {
+                delegate?.draggedMediaType(type: .video, url: drag.draggedFileURL!)
+            }
+            else if fileExtension == "mp3"
+            {
+                delegate?.draggedMediaType(type: .audio, url: drag.draggedFileURL!)
+            }
+            else if fileExtension == "doc" || fileExtension == "docx" || fileExtension == "pdf" || fileExtension == "epub"
+            {
+                delegate?.draggedMediaType(type: .document, url: drag.draggedFileURL!)
+            }
         }
         
         return acceptedFileExtensions.contains(fileExtension)

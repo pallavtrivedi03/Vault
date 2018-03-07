@@ -238,6 +238,19 @@ extension HomeViewController: NSCollectionViewDataSource, NSCollectionViewDelega
         collectionViewItem.textField?.stringValue = mediaName
         return item
     }
+    
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>)
+    {
+        guard let indexPath = indexPaths.first else {
+            return
+        }
+        
+        let mediaName = Array(files.keys)[indexPath.item]
+        let url = files[mediaName]?.url
+
+        NSWorkspace.shared().open(url!)
+        
+    }
 }
 
 struct Media

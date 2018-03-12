@@ -76,7 +76,7 @@ class HomeViewController: NSViewController
                                                     attributes: nil)
                     let fileName = sourcePath.components(separatedBy: "/").last
                     let destinationPath = subDirectoryPath.appending("/").appending(fileName!)
-                    copyFileToDocumentsDir(sourcePath: sourcePath, desitinationPath: destinationPath)
+                    moveFileToDocumentsDir(sourcePath: sourcePath, desitinationPath: destinationPath)
                 } catch {
                     print("Error creating images folder in documents dir: \(error)")
                 }
@@ -86,12 +86,12 @@ class HomeViewController: NSViewController
                 print("Directory exists")
                 let fileName = sourcePath.components(separatedBy: "/").last
                 let destinationPath = subDirectoryPath.appending("/").appending(fileName!)
-                copyFileToDocumentsDir(sourcePath: sourcePath, desitinationPath: destinationPath)
+                moveFileToDocumentsDir(sourcePath: sourcePath, desitinationPath: destinationPath)
             }
         }
     }
     
-    func copyFileToDocumentsDir(sourcePath: String, desitinationPath: String) {
+    func moveFileToDocumentsDir(sourcePath: String, desitinationPath: String) {
         let filemgr = FileManager.default
         if !filemgr.fileExists(atPath: desitinationPath)
         {
@@ -247,7 +247,6 @@ extension HomeViewController: NSCollectionViewDataSource, NSCollectionViewDelega
         
         let mediaName = Array(files.keys)[indexPath.item]
         let url = files[mediaName]?.url
-
         NSWorkspace.shared().open(url!)
         
     }

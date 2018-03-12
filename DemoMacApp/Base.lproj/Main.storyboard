@@ -688,7 +688,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Vault" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
                         <rect key="contentRect" x="0.0" y="447" width="1000" height="700"/>
@@ -708,6 +708,19 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="g4j-7h-Tre">
+            <objects>
+                <viewController id="uCa-RV-h9T" sceneMemberID="viewController">
+                    <view key="view" id="XWC-h8-QVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="41i-rF-dQl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="1069"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -745,6 +758,27 @@
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add File" id="QZ9-Nu-NV3">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" red="0.84856609083850931" green="0.84856609083850931" blue="0.84856609083850931" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zN-C6-BOn">
+                                            <rect key="frame" x="103" y="22" width="47" height="46"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="settings" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="l9W-Gy-19u">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="didClickOnAddFileButton:" target="XfG-lQ-9wD" id="F97-UR-SgY"/>
+                                                <segue destination="uCa-RV-h9T" kind="show" id="57o-Kq-Jdq"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ncu-mV-ePo">
+                                            <rect key="frame" x="100" y="0.0" width="53" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Settings" id="I4J-ew-87x">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" red="0.84856609080000001" green="0.84856609080000001" blue="0.84856609080000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
@@ -988,5 +1022,6 @@
     <resources>
         <image name="add-file" width="204.80000305175781" height="204.80000305175781"/>
         <image name="drag-and-drop-512" width="512" height="512"/>
+        <image name="settings" width="204.80000305175781" height="204.80000305175781"/>
     </resources>
 </document>

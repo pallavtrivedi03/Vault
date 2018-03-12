@@ -101,8 +101,6 @@ class DragDropAreView: NSView {
         
         return acceptedFileExtensions.contains(fileExtension)
     }
-
-    
 }
 
 extension NSDraggingInfo {
